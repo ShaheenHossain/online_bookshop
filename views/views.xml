@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="view_online_bookshop_form" model="ir.ui.view">
+        <field name="name">online.bookshop.form</field>
+        <field name="model">online.bookshop</field>
+        <field name="arch" type="xml">
+               <form string="Book Details">
+                   <sheet>
+                       <field name="book_image" widget="image" class="oe_avatar"/>
+                        <div col="8" class = "oe_title">
+                            <h3>
+                                <group>
+                                <field name="book_name" placeholder="Book Name English" required="1"/>
+                                <field name="book_id" placeholder="Book Serial ID Number "/>
+                                </group>
+                            </h3>
+                        </div>
+                        <group  string="Book Name">
+
+                         <field name="book_id" placeholder="Book Serial ID Number "/>
+
+                        </group>
+                    </sheet>
+               </form>
+        </field>
+    </record>
+    <record id="view_online_bookshop_tree" model="ir.ui.view">
+        <field name="name">online.bookshop.tree</field>
+        <field name="model">online.bookshop</field>
+        <field name="arch" type="xml">
+               <tree string="Books Details">
+                        <field name="book_name"/>
+                        <field name="book_id"/>
+               </tree>
+        </field>
+    </record>
+
+
+     <record id="action_online_bookshop" model="ir.actions.act_window">
+        <field name="name">Online Bookshop</field>
+        <field name="res_model">online.bookshop</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create the your first student application here.
+            </p>
+        </field>
+    </record>
+
+
+    <record id="seq_online_bookshop" model="ir.sequence">
+        <field name="name">Book Number</field>
+        <field name="res_model">online.bookshop</field>
+        <field name="code">online.bookshop</field>
+        <field name="prefix">BKN</field>
+        <field name="number_increment">1</field>
+        <field name="padding">14</field>
+    </record>
+
+
+
+
+    <menuitem
+            id="online_bookshop_parent_menu_id" name="Online Bookshop" sequence="10"/>
+
+    <menuitem
+            id="online_bookshop_menu_id" name="Online Bookshop"
+            parent="online_bookshop_parent_menu_id" action="action_online_bookshop" />
+
+
+</odoo>
